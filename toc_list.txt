@@ -1,0 +1,19 @@
+﻿
+Name                    Type
+----                    ----
+struct                     m
+pyimod01_archive           m
+pyimod02_importers         m
+pyimod03_ctypes            m
+pyimod04_pywin32           m
+pyiboot01_bootstrap        s
+pyi_rth_inspect            s
+pyi_rth_setuptools         s
+pyi_rth_pkgutil            s
+pyi_rth_multiprocessing    s
+pyi_rth_pkgres             s
+pyi_rth__tkinter           s
+edit                       s
+PYZ-00.pyz                 z
+
+
