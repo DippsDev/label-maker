@@ -8,5 +8,9 @@
             "source": "/(.*)",
             "destination": "/website/$1"
         }
-    ]
+    ],
+    "env": {
+        "BETTER_AUTH_SECRET": "@better_auth_secret",
+        "NEXT_PUBLIC_APP_URL": "@next_public_app_url"
+    }
 }
