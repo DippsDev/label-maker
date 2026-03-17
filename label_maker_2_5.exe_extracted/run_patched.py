@@ -69,6 +69,11 @@ import center_patch_runtime
 from fix_tracking_lookup import apply_patch_to_module
 
 # ============================================================
+# IMPORT PREVIEW PATCH FOR DYNAMIC CARRIER PREVIEW
+# ============================================================
+from preview_patch import apply_preview_patch
+
+# ============================================================
 # PATCH REQUESTS MODULE TO RETURN FAKE LICENSE RESPONSES
 # ============================================================
 import requests
@@ -245,6 +250,16 @@ try:
     # Apply the first tracking number only patch
     from first_tracking_only_patch import patch_tracking_collection
     patch_tracking_collection(module_globals)
+    
+    # Apply the preview patch after UI is initialized
+    # Schedule it to run after the main window is created
+    if 'root' in module_globals:
+        def delayed_preview_patch():
+            apply_preview_patch(module_globals)
+        
+        # Wait 2 seconds for UI to fully initialize
+        module_globals['root'].after(2000, delayed_preview_patch)
+        print("[*] Preview patch scheduled to apply after UI initialization")
     
 except SystemExit as e:
     print(f"[*] App exited with code: {e.code}")
